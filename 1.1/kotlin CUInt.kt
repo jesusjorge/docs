@@ -1,3 +1,5 @@
+package com.jesusjorge.concept.sdk
+
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 import java.io.InputStream
@@ -5,7 +7,6 @@ import java.lang.Exception
 import java.lang.StringBuilder
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
-import android.util.Base64
 
 //https://github.com/jesusjorge/s13n/wiki/1.1
 //
@@ -118,9 +119,9 @@ class CUInt {
         fun SelfTest() : Boolean{
             var Log = StringBuilder()
             Log.append("CUInt did not pass the self check.\n\tTest Results:\n")
-            var TestCases = "Ff8AAQID+fr+APv+AP3+AP7+AP/+AQD+AQH9AP///v0A/////QEAAAD9AQAAAf3////+/f/////8AAAAAQAAAAD8AAAAAQAAAAE="
+            var TestCases = "15ff00010203f9fafe00fbfe00fdfe00fefe00fffe0100fe0101fd00fffffefd00fffffffd01000000fd01000001fdfffffffefdfffffffffc0000000100000000fc0000000100000001"
             var TS = ByteArrayOutputStream()
-            var RS = ByteArrayInputStream(Base64.decode(TestCases, Base64.DEFAULT))
+            var RS = ByteArrayInputStream(ConvertHex(TestCases))
             var Tests = Read(RS)!!
             TS.write(Write(Tests))
             while(Tests > 0UL){
@@ -129,13 +130,24 @@ class CUInt {
                 TS.write(Write(Value))
                 Tests = Tests - 1UL
             }
-            var Results = String(Base64.encode(TS.toByteArray(),Base64.DEFAULT)).replace("\n","")
+            var Results = ConvertHex(TS.toByteArray())
             if(Results != TestCases){
                 Log.append("Source Test String: ").append(TestCases)
                 Log.append("\nResult Test String: ").append(Results)
                 throw Exception(Log.toString())
             }
             return Results == TestCases
+        }
+        fun ConvertHex(HexString: String) : ByteArray{
+            //Thanks Adam Millerchip
+            //https://stackoverflow.com/users/1225617/adam-millerchip
+            //https://stackoverflow.com/questions/66613717/kotlin-convert-hex-string-to-bytearray
+            return HexString.chunked(2)
+                .map{ it.toInt(16).toByte()}
+                .toByteArray()
+        }
+        fun ConvertHex(Bytes: ByteArray) : String{
+            return Bytes.toUByteArray().joinToString(""){ it.toString(radix = 16).padStart(2,'0')}
         }
         //endregion
     }
