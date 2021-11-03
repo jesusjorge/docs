@@ -4,6 +4,14 @@ We will be using CUInt128<br/>
 which mean that the max value we can get in one single byte is 250<br/>
 Total test: `74 byte(s)` sequence, `21` tests
 
+Test hex string:
+```
+15ff00010203f9fafe00fbfe00fdfe00fefe00fffe0100fe0101fd00fffffefd
+00fffffffd01000000fd01000001fdfffffffefdfffffffffc00000001000000
+00fc0000000100000001
+```
+**Contents**
+
 | ULong | Encoding |
 | ------| -------- |
 | 21 | `15` |
@@ -29,11 +37,6 @@ Total test: `74 byte(s)` sequence, `21` tests
 | 4294967296 | `fc` `00` `00` `00` `01` `00` `00` `00` `00` |
 | 4294967297 | `fc` `00` `00` `00` `01` `00` `00` `00` `01` |
 
-Test hex string:
-```
-15ff00010203f9fafe00fbfe00fdfe00fefe00fffe0100fe0101fd00fffffefd
-00fffffffd01000000fd01000001fdfffffffefdfffffffffc00000001000000
-00fc0000000100000001
-```
+
 
 [Definition](https://github.com/jesusjorge/s13n/wiki/1.1)
