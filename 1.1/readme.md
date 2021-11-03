@@ -1,4 +1,8 @@
-### Test
+### About this implementation
+
+We assume that we will be using `CUInt128` only
+
+### Tests
 
 We will be using CUInt128<br/>
 which mean that the max value we can get in one single byte is 250<br/>
