@@ -2,7 +2,6 @@ import dataclasses as DCLS
 from enum import Enum
 import io
 import struct
-import base64
 
 #https://github.com/jesusjorge/s13n/wiki/1.1
 #
@@ -89,9 +88,9 @@ class CUInt:
     def SelfTest():
         Log = []
         Log.append("CUInt did not pass the self check.\n\tTest Results:\n")
-        TestCases = "Ff8AAQID+fr+APv+AP3+AP7+AP/+AQD+AQH9AP///v0A/////QEAAAD9AQAAAf3////+/f/////8AAAAAQAAAAD8AAAAAQAAAAE="
+        TestCases = "15ff00010203f9fafe00fbfe00fdfe00fefe00fffe0100fe0101fd00fffffefd00fffffffd01000000fd01000001fdfffffffefdfffffffffc0000000100000000fc0000000100000001"
         TS = io.BytesIO()
-        RS = io.BytesIO(base64.b64decode(TestCases))
+        RS = io.BytesIO(bytearray.fromhex(TestCases))
         Tests = CUInt.Read(RS)
         TS.write(CUInt.Write(Tests))
         while Tests > 0:
@@ -101,7 +100,7 @@ class CUInt:
             TS.write(CUInt.Write(Value))
             Tests = Tests - 1
         TS.seek(0)
-        Result = base64.b64encode(TS.read()).decode('utf-8')
+        Result = TS.read().hex()
         if Result != TestCases:
             Log.append("Source Test String: ")
             Log.append(TestCases)
@@ -110,5 +109,3 @@ class CUInt:
             Log = ''.join(Log)
             raise Exception(Log)    
         return Result == TestCases
-
-CUInt.SelfTest()
