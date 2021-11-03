@@ -31,7 +31,9 @@ Total test: `74 byte(s)` sequence, `21` tests
 
 Test hex string:
 ```
-15ff00010203f9fafe00fbfe00fdfe00fefe00fffe0100fe0101fd00fffffefd00fffffffd01000000fd01000001fdfffffffefdfffffffffc0000000100000000fc0000000100000001
+15ff00010203f9fafe00fbfe00fdfe00fefe00fffe0100fe0101fd00fffffefd
+00fffffffd01000000fd01000001fdfffffffefdfffffffffc00000001000000
+00fc0000000100000001
 ```
 
 [Definition](https://github.com/jesusjorge/s13n/wiki/1.1)
