@@ -1,4 +1,17 @@
 #https://github.com/jesusjorge/s13n/wiki/2.2
+#
+#Writer = BIFFSequenceWriter.Create()
+#Writer.WriteLong(12345)
+#Writer.Write(b'bunch of bytes')
+#Writer.Write(None)
+#Result = Writer.GetBytes()
+#
+#Reader = BIFFSequenceReader.Create(ByteSequence) or...
+#Reader = BIFFSequenceReader(SomeStream)
+#long = Reader.ReadLong()
+#array = Reader.Read()
+#another_array = Reader.Read()
+#yet_another_array = Reader.Read()
 
 ##########################################################################################
 # Included Code from: https://github.com/jesusjorge/docs/blob/main/1.1/python%20CUInt.py #
@@ -7,8 +20,8 @@
 
 #https://github.com/jesusjorge/s13n/wiki/1.1
 #
-#var ByteArrayResult = CUInt.Write(TrivialULong)
-#var ULongResult = CUInt.Read(ByteArrayInputStream)
+#ByteArrayResult = CUInt.Write(TrivialULong)
+#ULongResult = CUInt.Read(ByteArrayInputStream)
 
 import dataclasses as DCLS
 from enum import Enum
