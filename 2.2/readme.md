@@ -30,7 +30,7 @@
 
 | Value | Encoding |
 | ------| -------- |
-| 11 (CUInt128) | `01` `0b` |
+| 11 (CUInt128) | `01` `0b` (We "unnecesary" wrap our CUInt's because we want to count the arrays) |
 | null | `ff` |
 | bytes[0] | `00` |
 | `A` | `01`  `41` |
