@@ -1,3 +1,8 @@
+**Notes**<br/>
+`CUInt128` read/write won't be official on this implementation<br/>
+It is currently provided, just for testing purposes, but will be removed soon.<br/>
+You must provide your own byte conversion methods<br/>
+
 **Test**
 ```
 010bff0001410548656c6c6f06576f726c6421f83032303430
