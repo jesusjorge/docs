@@ -30,7 +30,7 @@
 
 | Value | Encoding |
 | ------| -------- |
-| 11 (CUInt128) | `01` `0b` (We "unnecesary" wrap our `CUInt128` because we want to count the arrays)<br/>Any other conversions will be handled by another proper class |
+| 11 (CUInt128) | `01` `0b`<br/>We "unnecesary" wrap our `CUInt128` because we want to count the arrays in here<br/>Any other conversions will be handled by another proper class<br/>It is up to the system designer to define any further byte conversion into primitive types |
 | null | `ff` |
 | bytes[0] | `00` |
 | `A` | `01`  `41` |
