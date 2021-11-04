@@ -30,7 +30,7 @@
 
 | Value | Encoding |
 | ------| -------- |
-| 11 (CUInt128) | `01` `0b` (We "unnecesary" wrap our CUInt's because we want to count the arrays) |
+| 11 (CUInt128) | `01` `0b` (We "unnecesary" wrap our `CUInt128` because we want to count the arrays)<br/>Any other conversions will be handled by another proper class |
 | null | `ff` |
 | bytes[0] | `00` |
 | `A` | `01`  `41` |
