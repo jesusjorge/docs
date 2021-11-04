@@ -37,6 +37,9 @@ class BIFFSequenceWriter:
             Size = len(Bytes)
             self.Stream.write(CUInt.Write(Size,CUInts.CUInt128))
             self.Stream.write(Bytes)
+    #UNOFFICIAL METHOD, JUST FOR TESTING PURPOSES
+    def WriteCUInt(self,Value):
+        self.Write(CUInt.Write(Value,CUInts.CUInt128))
             
 class BIFFSequenceReader:
     def Create(Bytes):
@@ -58,6 +61,14 @@ class BIFFSequenceReader:
         result = self.Stream.read()
         self.Stream.close()
         return result
+    #UNOFFICIAL METHOD, JUST FOR TESTING PURPOSES
+    def ReadCUInt(self):
+        Value = self.Read()
+        if len(Value) == 1:
+            if Value == b'\xff':
+                return None
+            return int.from_bytes(Value,"big")
+        return int.from_bytes(Value[1:],"big")
     def SelfTest():
         Log = []
         Log.append("BIFFSequence did not pass the self check.\n\tTest Results:\n")
