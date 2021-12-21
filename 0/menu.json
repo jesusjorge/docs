@@ -1,5 +1,5 @@
 [
   ["Simple test","print('TESTING')"],
-  ["UDP Broadcast","exec(ju.go(ju.pretext + '1/udp_broadcast.py'),globals())"],
-  ["C","3"]
+  ["UDP Broadcaster Test","exec(ju.go(ju.pretext + '1/udp_broadcast.py'),globals())"],
+  ["UDP Listener Test","exec(ju.go(ju.pretext + '1/udp_listener.py'),globals())"]
 ]
