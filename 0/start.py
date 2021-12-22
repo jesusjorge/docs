@@ -34,6 +34,7 @@ while True:
     try:
         code = menu[int(option)][1]
         exec(code,globals())
-    except:
+    except Exception as e:
+        print(str(e))
         print("Invalid Option!")
 
