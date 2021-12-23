@@ -48,16 +48,20 @@ void print(char* msg);
 
 //poor man's malloc
 int MALLOC_PTR = 65536;
+
+extern "C"
 char* malloc(int size){
   MALLOC_PTR = MALLOC_PTR - size;
   return (char*)MALLOC_PTR;
 }
 
+extern "C"
 void mem_cpy(char* destiny, int destiny_index, char* source, int source_index, int length){
   for(int i = 0; i < length; i++)
     destiny[destiny_index + i] = source[source_index + i]; 
 }
 
+extern "C"
 int str_len(char* str){
   int c = 0;
   while(str[c] != 0)
@@ -65,6 +69,7 @@ int str_len(char* str){
   return c;
 }
 
+extern "C"
 char* str_concat(char* a, char* b){
   int la = str_len(a);
   int lb = str_len(b);
@@ -84,6 +89,7 @@ char* demo(){
   return str_concat(a,b);
 }
 
+extern "C"
 int main() { 
   return 1;
 }
